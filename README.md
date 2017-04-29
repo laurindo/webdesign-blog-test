@@ -9,6 +9,20 @@ Project with angular + grunt + sass + bower was created by me without boilerplat
 npm install
 bower install
 ```
+
+* Run
+
+```
+grunt
+```
+
+* Run Unit Test
+
+```
+grunt test
+```
+
+
 * Development Demo
 ```
 http://localhost:8080/#!/home
