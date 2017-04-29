@@ -15,6 +15,15 @@ module.exports = function(grunt) {
                 }
             }
         },
+        concat: {
+            options: {
+                separator: ';',
+            },
+            dist: {
+                src: ['app/**/*.js'],
+                dest: 'public/built.js',
+            },
+        },
         connect: {
             server: {
                 options: {
@@ -30,6 +39,10 @@ module.exports = function(grunt) {
                 options: {
                     atBegin: true
                 }
+            },
+            karma: {
+                files: ['app/**/*.js'],
+                tasks: ['karma:unit:run']
             }
         },
         sass: {                              // Task
@@ -55,7 +68,23 @@ module.exports = function(grunt) {
                     }
                 }
             }
-        }
+        },
+        wiredep: {
+            target: {
+                src: 'public/index.html' // point to your HTML file.
+            }
+        },
+        karma: {
+            unit: {
+                configFile: 'karma.conf.js',
+                background: true
+            },
+            travis: {
+                configFile: 'karma.conf.js',
+                singleRun: true,
+                browsers: ['PhantomJS']
+            }
+        },
     });
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -63,15 +92,23 @@ module.exports = function(grunt) {
     //grunt.loadNpmTasks('grunt-babel');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-watch');
-    grunt.loadNpmTasks('grunt-contrib-sass');    
+    grunt.loadNpmTasks('grunt-contrib-sass');
+    grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-wiredep');
+    grunt.loadNpmTasks('grunt-karma');
     
     grunt.registerTask('default', [
         'jshint',
         //'babel',
         'sass',
+        'wiredep',
+        'concat',
         'browserify:dist',
         'connect:server',
         'watch:dev'
     ]);
+
+    grunt.registerTask('devmode', ['karma:unit', 'watch:karma']);
+    grunt.registerTask('test', ['karma:travis'])
 
 };
