@@ -1,0 +1,22 @@
+{
+  "name": "test-hmr",
+  "version": "1.0.0",
+  "authors": [
+    "Daniel Laurindo <dslaurindo@gmail.com>"
+  ],
+  "description": "Test Front End",
+  "license": "MIT",
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "angular": "~1.6.4",
+    "oclazyload": "~1.1.0",
+    "ui-router": "~0.4.2",
+    "angular-translate": "~2.15.1",
+    "underscore": "^1.8.3"
+  }
+}

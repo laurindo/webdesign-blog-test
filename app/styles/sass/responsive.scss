@@ -1,0 +1,59 @@
+/* 
+ Pra dispositivos que tem uma largura mínima de 768 pixels. Tablets, por exemplo.
+*/
+@media screen and (max-width: 425px) {
+    body {
+
+        header {
+            .logo, h1.title {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+            div.menu {
+                ul {
+                    text-align: center;
+                    li {
+                        margin-right: 10px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .comments {
+            .area-like {
+                .like-odd,
+                .dislike-odd,
+                .like-even
+                .dislike-even {
+                    margin: 0 10px!important;
+                }
+                .number-like-odd,
+                .number-like-even {
+                    margin: 0 10px;
+                    text-align: center;
+                }
+            }
+        }
+
+        footer {
+            p {
+                padding: 5px!important;
+                text-align: center!important;
+            }
+        }
+
+    }
+}
+
+/* 
+ Dispositivos com largura mínima de 1200 pixels. Por exemplo TVs.
+*/
+@media screen and (min-width: 768px) {
+    header {
+        h1 {
+            width: 300px;
+        }
+    }
+}

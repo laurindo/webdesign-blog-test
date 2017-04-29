@@ -1,0 +1,17 @@
+<div class="modal">
+    <div class="iconCloseModal" ng-click="closeModal('modal-default');"></div>
+    <div class="modal-body">
+        <h5 class="title">{{'add.comment' | translate}}</h5>
+        <form name="formComment">
+            <label for="name">{{'your.name' | translate}}</label>
+            <input type="text" id="name" ng-model="commentData.name" />
+            
+            <label for="comment">{{'your.comment'|translate}}</label>
+            <textarea type="text" id="comment" rows="15" ng-model="commentData.description"></textarea>
+            <small>{{commentData.description.length}} {{'characters.out.of'|translate}} 500</small>
+        </form>
+        <button class="primary active" ng-show="!isEdition" ng-disabled="!commentData.name || !commentData.description || commentData.description.length > 500" ng-click="save('modal-default');">{{'save'|translate}}</button>
+        <button class="primary active" ng-show="isEdition" ng-disabled="!commentData.name || !commentData.description || commentData.description.length > 500" ng-click="update('modal-default');">{{'update'|translate}}</button>
+    </div>
+</div>
+<div class="modal-background"></div>

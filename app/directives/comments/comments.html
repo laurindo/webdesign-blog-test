@@ -1,0 +1,49 @@
+<div class="comments">
+
+    <div class="area-like">
+        <!-- ODD -->
+        <div ng-show="position%2==0">
+            <div class="dislike-odd" ng-click="dislike(data)">&nbsp;</div>
+            <div class="number-like-odd">{{data.likes}}</div>
+            <div class="like-odd" ng-click="like(data)">&nbsp;</div>
+        </div>
+        <!-- EVEN -->
+        <div ng-show="position%2==1">
+            <div class="dislike-even" ng-click="dislike(data)">&nbsp;</div>
+            <div class="number-like-even">{{data.likes}}</div>
+            <div class="like-even" ng-click="like(data)">&nbsp;</div>
+        </div>
+    </div>
+
+    <div class="area-comments">
+        <h4>{{data.title}}</h4>
+        <p>{{data.description}}</p>
+        <ul>
+            <li ng-repeat="tag in data.tags">
+                {{tag.name}}
+            </li>
+        </ul>
+        <button ng-class="position%2==0 ? 'primary' : 'secondary'" ng-click="openModal(data)">
+            {{'comment'|translate}}
+        </button>
+
+        <div class="commentsAdded" ng-repeat="comment in data.comments">
+            <h5>
+                {{comment.name}}
+            </h5>
+            <p>
+                {{comment.description}}
+            </p>
+            <div class="buttonsCommentAction">
+                <button ng-class="position%2==0 ? 'primary' : 'secondary'" ng-click="editComment(comment)">
+                    {{'edit'|translate}}
+                </button>
+                <button ng-class="position%2==0 ? 'primary' : 'secondary'" ng-click="deleteComment(comment, $index)">
+                    {{'delete'|translate}}
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+</div>

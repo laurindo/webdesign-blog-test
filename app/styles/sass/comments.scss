@@ -1,0 +1,120 @@
+$even_comment: $PURPLE;
+
+comments {
+    display: block;
+}
+
+%listTags {
+    ul {
+        margin-bottom: 16px;
+        li {
+            display: inline-block;
+            padding-right: 20px;
+            color: $GREY;
+            font-size: 12px;
+        }
+    }
+}
+
+.odd-comment {
+    .area-comments {
+        ul {
+            li {
+                color: $BLUE!important;
+            }
+        }
+    }
+}
+
+.even-comment {
+    background-color: $even_comment!important;
+    .area-comments {
+        h1, h2, h3, h4, h5, h6 {
+            color: $WHITE!important;
+        }
+        p {
+            color: $WHITE!important;
+        }
+        ul {
+            li {
+                color: $WHITE!important;
+            }
+        }
+        .commentsAdded {
+            border-bottom: solid 1px $WHITE!important;
+        }
+    }
+}
+
+%iconLike {
+    left: 20px;
+    width: 33px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.comments {
+    padding: 20px 0;
+    .area-like {
+        display: inline-block;
+        padding-right: 20px;
+        text-align: right;
+        width: 20%;
+        div {
+            float: right;
+            .number-like-even {
+                color: $WHITE;
+            }
+            .number-like-odd, .number-like-even {
+                padding: 10px;
+            }
+            .like-odd {
+                background: url('../images/thumbs.jpg') 0 0;
+                @extend %iconLike;
+                &:hover {
+                    background: url('../images/thumbs.jpg') 35px 0;
+                }
+            }
+            .dislike-odd {
+                background: url('../images/thumbs.jpg') 0 -33px;
+                @extend %iconLike;
+                &:hover {
+                    background: url('../images/thumbs.jpg') 35px -33px;
+                }
+            }
+
+            .like-even {
+                background: url('../images/thumbs.jpg') 0 -68px;
+                @extend %iconLike;
+                &:hover {
+                    background: url('../images/thumbs.jpg') 35px -68px;
+                }
+            }
+            .dislike-even {
+                background: url('../images/thumbs.jpg') 0 -101px;
+                @extend %iconLike;
+                &:hover {
+                    background: url('../images/thumbs.jpg') 35px -101px;
+                }
+            }
+        }
+        
+    }
+    .area-comments {
+        display: inline-block;
+        width: 66%;
+        vertical-align: top;
+        @extend %listTags;
+
+        .commentsAdded {
+            margin-top: 10px;
+            padding-bottom: 5px;
+            border-bottom: solid 1px $BLUE;
+
+            .buttonsCommentAction {
+                text-align: right;
+            }
+        }
+
+    }
+}

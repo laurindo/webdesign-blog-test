@@ -1,0 +1,124 @@
+@charset 'utf-8';
+
+/*====================================================*/
+/* COLORS */
+/*====================================================*/
+$GREY: #80878D;
+$WHITE: #E1E9ED;
+$PURPLE: #7A3053;
+$GREEN: #369B79;
+$BLUE: #112433;
+$RED: #CD1719;
+
+/* STATE COLORS BUTTONS */
+$BTN_INACTIVE: #B9C9B0;
+$BTN_NORMAL: #517A38;
+$BTN_HOVER: #3D692A;
+
+/*====================================================*/
+/* BUTTON */
+/*====================================================*/
+button {
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+    padding: 3px 18px;
+    background-color: transparent;
+    text-transform: uppercase;
+    outline: 0;
+    &.primary {
+        color: $BLUE;
+        border: solid 1px $BLUE;
+    }
+    &.secondary {
+        color: $WHITE!important;
+        border: solid 1px $WHITE;
+    }
+
+}
+
+button:active, button.active {
+    background-color: $BTN_NORMAL;
+    color: $WHITE;
+}
+
+button:hover {
+    background-color: $BTN_HOVER;
+    color: $WHITE;
+}
+
+button:disabled {
+    background-color: $BTN_INACTIVE;
+    color: $WHITE;
+}
+
+
+/*====================================================*/
+/* FONT */
+/*====================================================*/
+$H1_SIZE: 72px;
+$H2_SIZE: 60px;
+$H3_SIZE: 20px;
+$H4_SIZE: 16px;
+$H5_SIZE: 16px;
+$H6_SIZE: 14px;
+
+$FONT_FAMILY: 'Arial';
+
+%fontWeight {
+    font-weight: bold;
+}
+
+%fontPaddingBottom {
+    padding-bottom: 16px;
+}
+
+h1 {
+    font-size: $H1_SIZE;
+    font-family: $FONT_FAMILY;
+    @extend %fontWeight;
+    text-transform: uppercase;
+    color: $BLUE;
+}
+
+h2 {
+    font-size: $H2_SIZE;
+    font-family: $FONT_FAMILY;
+    @extend %fontWeight;
+    @extend %fontPaddingBottom;
+}
+
+h3 {
+    font-size: $H3_SIZE;
+    font-family: $FONT_FAMILY;
+    @extend %fontWeight;
+    @extend %fontPaddingBottom;
+}
+
+h4 {
+    font-size: $H4_SIZE;
+    font-family: $FONT_FAMILY;
+    @extend %fontWeight;
+    font-style: italic;
+    padding-bottom: 18px;
+    @extend %fontPaddingBottom;
+}
+
+h5 {
+    font-size: $H5_SIZE;
+    font-family: $FONT_FAMILY;
+    @extend %fontPaddingBottom;
+}
+
+h6 {
+    font-size: $H6_SIZE;
+    font-family: $FONT_FAMILY;
+    @extend %fontPaddingBottom;
+}
+
+/*====================================================*/
+/* STATE COLORS BUTTONS */
+/*====================================================*/
+$BTN_INACTIVE: '#B9C9B0';
+$BTN_NORMAL: '';
+$BTN_HOVER: '';

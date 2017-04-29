@@ -1,0 +1,32 @@
+@import "reset.scss";
+@import "utils.scss";
+@import "header.scss";
+@import "comments.scss";
+@import "modal.scss";
+@import "responsive.scss";
+
+body {
+    background-color: $WHITE;
+    font-family: $FONT_FAMILY;
+
+    p {
+        font-size: 14px;
+        @extend %fontPaddingBottom;
+    }
+
+    .otherPages {
+        background-color: $PURPLE;
+        padding: 20px;
+        color: $WHITE;
+    }
+
+    footer {
+        width: 100%;
+        background-color: $BLUE;
+        p {
+            padding: 5px 0 5px 250px;
+            color: $WHITE;
+        }
+    }
+
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width" />
+    <link rel="stylesheet" href="app/styles/main.css">
+    <title>Test Front End</title>
+  </head>
+
+  <body ng-app="app" ng-cloak>
+
+    <header>
+      <div class="logo">
+        <img src="./app/images/logo.png" alt="Logo">  
+      </div>
+
+      <div>
+        <h1 class="title">web design blog</h1>
+
+        <div class="menu">
+          <ul>
+            <li ui-sref="home">{{'home'|translate}}</li>
+            <li ui-sref="about">{{'about'|translate}}</li>
+            <li ui-sref="portfolio">{{'portfolio'|translate}}</li>
+            <li ui-sref="blog">{{'blog'|translate}}</li>
+          </ul>
+        </div>
+
+      </div>
+    </header>
+
+    <ui-view></ui-view>
+
+    <footer>
+      <p>Copyright 2017</p>
+    </footer>
+
+    <script type="text/javascript" src="bower_components/angular/angular.min.js"></script>
+    <script type="text/javascript" src="bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+    <script type="text/javascript" src="bower_components/ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="bower_components/angular-translate/angular-translate.min.js"></script>
+    <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
+    
+    <script type="text/javascript" src="app/main.js"></script>
+    <script type="text/javascript" src="app/constants/general.constant.js"></script>
+    <script type="text/javascript" src="app/constants/english.i18n.constant.js"></script>
+    <script type="text/javascript" src="app/constants/portuguese.i18n.constant.js"></script>
+    <script type="text/javascript" src="app/directives/comments/comments.directive.js"></script>
+    <script type="text/javascript" src="app/directives/modal/modal.service.js"></script>
+    <script type="text/javascript" src="app/directives/modal/modal.directive.js"></script>
+    <script type="text/javascript" src="app/translate.config.js"></script>
+    <script type="text/javascript" src="app/routes/index.js"></script>
+  </body>
+</html>

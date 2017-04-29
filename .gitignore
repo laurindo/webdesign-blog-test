@@ -1,0 +1,10 @@
+bower_components/
+node_modules/
+.sass-cache/
+.babelrc
+.firebaserc
+database.rules.json
+firebase.json
+public/
+functions/
+dist/
