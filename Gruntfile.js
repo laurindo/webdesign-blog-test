@@ -18,10 +18,24 @@ module.exports = function(grunt) {
         concat: {
             options: {
                 separator: ';',
+                process: function(src, filepath) {
+                    if (filepath.indexOf('spec') == -1) {
+                        return src;
+                    }
+                }
             },
             dist: {
-                src: ['app/**/*.js'],
-                dest: 'public/built.js',
+                src: ['app/main.js', 'app/constants/*.js', 'app/directives/*.js', 'app/translate.config.js', 'app/**/*.js', 'app/routes/index.js'],
+                dest: 'public/scripts.js',
+            },
+            vendor: {
+                src: ['bower_components/angular/angular.min.js', 'bower_components/oclazyload/dist/ocLazyLoad.min.js', 'bower_components/ui-router/release/angular-ui-router.min.js', 'bower_components/ui-router/release/angular-ui-router.min.js', 'bower_components/angular-translate/angular-translate.min.js', 'bower_components/underscore/underscore-min.js'],
+                dest: 'public/vendor.js',
+            },
+            missing: {
+                src: ['app/**/*.spec.js'],
+                dest: 'public/compiled.js',
+                nonull: true,
             },
         },
         connect: {
@@ -108,7 +122,15 @@ module.exports = function(grunt) {
         'watch:dev'
     ]);
 
+    grunt.registerTask('build', [
+        'jshint',
+        'sass',
+        'wiredep',
+        'concat',
+        'browserify:dist'
+    ]);
+
     grunt.registerTask('devmode', ['karma:unit', 'watch:karma']);
-    grunt.registerTask('test', ['karma:travis'])
+    grunt.registerTask('test', ['karma:travis']);
 
 };
