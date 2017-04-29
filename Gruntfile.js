@@ -19,6 +19,7 @@ module.exports = function(grunt) {
             options: {
                 separator: ';',
                 process: function(src, filepath) {
+                    //Uncheck files with contains *.spec.js
                     if (filepath.indexOf('spec') == -1) {
                         return src;
                     }
